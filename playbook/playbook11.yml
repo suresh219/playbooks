@@ -1,0 +1,15 @@
+---
+ - name : install software packages
+   hosts : all
+   tasks :
+     - name : uninstall s/w
+       apt :
+        name : "{{item}}"
+        state : absent
+        purge : yes
+       with_items :
+         - tree
+         - apache2
+         - git
+         - tomcat8
+...

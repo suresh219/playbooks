@@ -1,0 +1,15 @@
+---
+ - name : creating users,directories and files using global scope variable
+   hosts : all 
+   tasks : 
+    - name : creating users
+      user : 
+       name : "{{a}}"
+       password : "{{b}}"
+       home : "{{c}}"
+    - name : creating directories/files
+      file : 
+       name : "{{d}}"
+       state : "{{e}}"
+...
+      

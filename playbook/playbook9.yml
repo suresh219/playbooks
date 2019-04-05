@@ -1,0 +1,11 @@
+---
+ - name : creating user using hostscope variable
+   hosts : 172.31.31.128
+   tasks :
+     - name : user creation
+       user : 
+        name : "{{a}}"
+        password : "{{b}}"
+        home : "{{c}}"
+        uid : "{{d}}"
+...

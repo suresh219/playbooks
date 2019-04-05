@@ -1,0 +1,15 @@
+---
+- name: remove all images
+  hosts: all
+  tasks:
+    - name: delete images
+      docker_image:
+          name: "{{item}}"
+          state: absent
+      with_items:
+          - wordpress
+          - postgres
+          - ubuntu
+          - jenkins
+          - mysql:5
+...

@@ -1,0 +1,11 @@
+---
+ - name : install and uninstall s/w
+   hosts : all 
+   tasks : 
+    - name : install and uninstall
+      apt : 
+       name : "{{a}}"
+       state : "{{b}}"
+       update_cache : "{{c}}"
+       purge : "{{d}}"
+...

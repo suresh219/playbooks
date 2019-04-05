@@ -1,0 +1,14 @@
+---
+ - name : install software packages
+   hosts : all
+   tasks :
+     - name : install tree
+       apt :
+        name : "{{item}}"
+        state : present
+        update_cache : yes
+       with_items :
+         - tree
+         - apache2
+         - git
+... 

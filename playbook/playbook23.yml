@@ -1,0 +1,22 @@
+---
+- name: create ci/cd environment by linking jenkins with 2 tomcat servers
+  hosts: all
+  tasks:
+    - name: start jenkins
+      docker_container:
+        image: jenkins
+        name: devserver
+        ports:
+          - "8081:8080"
+    - name: start tomcat as QAserver and prodserver
+      docker_container:
+        image: tomcat
+        name: "{{item.a}}"
+        ports:
+          - "{{item.b}}"
+        links:
+          - "devserver:jenkins"
+      with_items:
+          - { a : qaserver, b : "8082:8080"}
+          - { a : prodserver, b : "8083:8080"}
+...

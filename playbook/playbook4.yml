@@ -1,0 +1,25 @@
+---
+ - name : configure apache2
+   hosts : all
+   tasks : 
+    - name : install apache2
+      apt : 
+       name : apache2
+       state : present
+    - name : edit the content of index.html file
+      copy : 
+       content : "welcome to intelliq\n"
+       dest : /var/www/html/index.html
+    - name : restart apache2
+      service : 
+       name : apache2
+       state : restarted
+    - name : check url response node1
+      uri : 
+       url : http://172.31.31.128
+       status : 200
+    - name : check url response node2
+      uri : 
+       url : http://172.31.31.166
+       status : 200
+...

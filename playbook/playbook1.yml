@@ -1,0 +1,14 @@
+---
+ - name : creating user
+   hosts : all
+   tasks :
+    - name : user creation
+      user :
+       name : anu
+       password : intelliq
+       home : /home/anu
+       shell : /bin/bash
+       comment : "a regular user"
+       uid : 12345
+...
+
